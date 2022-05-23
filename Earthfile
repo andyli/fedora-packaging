@@ -62,10 +62,6 @@ devcontainer:
     COPY --chown=$USER_UID:$USER_GID .devcontainer/direnv.toml /home/$USERNAME/.config/direnv/config.toml
     RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
 
-    # Create kubeconfig for storing current-context,
-    # such that the project kubeconfig_* files wouldn't be touched.
-    RUN mkdir -p ~/.kube && install -m 600 /dev/null ~/.kube/config
-
     USER root
 
     ARG GIT_SHA
