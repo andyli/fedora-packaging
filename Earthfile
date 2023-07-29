@@ -1,5 +1,5 @@
 VERSION 0.6
-FROM fedora:37
+FROM fedora:38
 ARG DEVCONTAINER_IMAGE_NAME_DEFAULT=ghcr.io/andyli/fedora_packaging_devcontainer
 
 ARG USERNAME=vscode
@@ -44,8 +44,9 @@ devcontainer-base:
 # RUN earthly bootstrap --no-buildkit --with-autocomplete
 earthly:
     FROM +devcontainer-base
-    ARG --required TARGETARCH
-    RUN curl -fsSL https://github.com/earthly/earthly/releases/download/v0.7.2/earthly-linux-${TARGETARCH} -o /usr/local/bin/earthly \
+    ARG TARGETARCH
+    ARG VERSION=0.7.13 # https://github.com/earthly/earthly/releases
+    RUN curl -fsSL https://github.com/earthly/earthly/releases/download/v${VERSION}/earthly-linux-${TARGETARCH} -o /usr/local/bin/earthly \
         && chmod +x /usr/local/bin/earthly
     SAVE ARTIFACT /usr/local/bin/earthly
 
