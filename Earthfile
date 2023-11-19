@@ -1,5 +1,5 @@
 VERSION 0.6
-FROM fedora:38
+FROM fedora:39
 ARG DEVCONTAINER_IMAGE_NAME_DEFAULT=ghcr.io/andyli/fedora_packaging_devcontainer
 
 ARG USERNAME=vscode
