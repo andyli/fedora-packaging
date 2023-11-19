@@ -2,6 +2,10 @@
 
 A VSCode devcontainer setup for Fedora packaging.
 
+# WSL config
+
+Remember to run `ssh-add` in WSL such that ssh agent will work in devcontainer.
+
 # Example steps for updating the Haxe package
 
 1. `kinit ${FAS_USERNAME}@FEDORAPROJECT.ORG`
