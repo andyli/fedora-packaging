@@ -1,12 +1,10 @@
-VERSION 0.6
+VERSION 0.8
 FROM fedora:39
-ARG DEVCONTAINER_IMAGE_NAME_DEFAULT=ghcr.io/andyli/fedora_packaging_devcontainer
+ARG --global DEVCONTAINER_IMAGE_NAME_DEFAULT=ghcr.io/andyli/fedora_packaging_devcontainer
 
-ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
-ARG TARGETARCH
+ARG --global USERNAME=vscode
+ARG --global USER_UID=1000
+ARG --global USER_GID=$USER_UID
 
 devcontainer-library-scripts:
     RUN curl -fsSLO https://raw.githubusercontent.com/andyli/vscode-dev-containers/fedora/script-library/common-redhat.sh
@@ -45,7 +43,7 @@ devcontainer-base:
 earthly:
     FROM +devcontainer-base
     ARG TARGETARCH
-    ARG VERSION=0.7.13 # https://github.com/earthly/earthly/releases
+    ARG VERSION=0.8.3 # https://github.com/earthly/earthly/releases
     RUN curl -fsSL https://github.com/earthly/earthly/releases/download/v${VERSION}/earthly-linux-${TARGETARCH} -o /usr/local/bin/earthly \
         && chmod +x /usr/local/bin/earthly
     SAVE ARTIFACT /usr/local/bin/earthly
