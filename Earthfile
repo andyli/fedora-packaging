@@ -1,5 +1,5 @@
 VERSION 0.8
-FROM fedora:39
+FROM fedora:41
 ARG --global DEVCONTAINER_IMAGE_NAME_DEFAULT=ghcr.io/andyli/fedora_packaging_devcontainer
 
 ARG --global USERNAME=vscode
@@ -43,7 +43,7 @@ devcontainer-base:
 earthly:
     FROM +devcontainer-base
     ARG TARGETARCH
-    ARG VERSION=0.8.3 # https://github.com/earthly/earthly/releases
+    ARG VERSION=0.8.15 # https://github.com/earthly/earthly/releases
     RUN curl -fsSL https://github.com/earthly/earthly/releases/download/v${VERSION}/earthly-linux-${TARGETARCH} -o /usr/local/bin/earthly \
         && chmod +x /usr/local/bin/earthly
     SAVE ARTIFACT /usr/local/bin/earthly
