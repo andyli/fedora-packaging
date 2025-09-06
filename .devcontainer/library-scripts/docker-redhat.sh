@@ -87,7 +87,7 @@ yum -y install ca-certificates curl gnupg2 dirmngr dnf net-tools dialog git open
 # If unable to load OS Name and Verstion from os-release, install lsb_release
 if [ $? -ne 0 ] || [ "${NAME}" = "" ] || [ "${VERSION_ID}" = "" ]; then
 
-    yum -y install redhat-lsb-core
+    yum -y install redhat-lsb
 
     OSNAME=$(lsb_release -is | tr '[:upper:]' '[:lower:]')
     RHEL_COMPAT_VER=${VERSION_ID:-`lsb_release -rs | cut -d. -f1`}

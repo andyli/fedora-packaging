@@ -78,7 +78,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         vim-minimal \
         less \
         jq \
-        redhat-lsb-core \
+        redhat-lsb \
         openssl-libs \
         krb5-libs \
         libicu \
